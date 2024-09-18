@@ -6,40 +6,13 @@ use Illuminate\Database\Eloquent\Builder;
 class PostFilter extends QueryFilter
 {
     /**
-     * @param string $mask
+     * @param array $genres
      */
-    public function mask(string $mask)
+    public function genres(array $genres)
     {
-        $this->builder->whereHas('ip', function($q) use($mask)
+        $this->builder->whereHas('genres', function($q) use($genres)
         {
-            $q->whereRaw("ip <<= inet '$mask'");
+            return $q->whereIn('id', $genres);
         });
-    }
-
-    /**
-     * @param string $ip
-     */
-    public function ip(string $ip)
-    {
-        $this->builder->whereHas('ip', function($q) use($ip)
-        {
-            $q->where('ip', '=', $ip);
-        });
-    }
-
-    /**
-     * @param string $date
-     */
-    public function dateFrom(string $date)
-    {
-        $this->builder->where('date', '>=', $date);
-    }
-
-    /**
-     * @param string $date
-     */
-    public function dateTo(string $date)
-    {
-        $this->builder->where('date', '<=', $date);
     }
 }

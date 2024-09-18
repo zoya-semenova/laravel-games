@@ -20,5 +20,6 @@ Route::post('/developer/{developer}', [\App\Http\Controllers\DeveloperController
 Route::post('/genre', [\App\Http\Controllers\GenreController::class, 'store']);
 Route::post('/genre/{genre}', [\App\Http\Controllers\GenreController::class, 'update']);
 
+Route::post('/game/filter', [\App\Http\Controllers\GameController::class, 'filter']);
 Route::post('/game', [\App\Http\Controllers\GameController::class, 'store']);
 Route::post('/game/{game}', [\App\Http\Controllers\GameController::class, 'update']);

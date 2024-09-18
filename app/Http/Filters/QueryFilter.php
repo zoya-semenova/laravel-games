@@ -36,7 +36,7 @@ abstract class QueryFilter
         foreach ($this->fields() as $field => $value) {
             $method = Str::camel($field);
             if (method_exists($this, $method)) {
-                call_user_func_array([$this, $method], (array)$value);
+                call_user_func([$this, $method], $value);
             }
         }
     }
@@ -47,7 +47,13 @@ abstract class QueryFilter
     protected function fields(): array
     {
         return array_filter(
-            array_map('trim', $this->request->all())
-        );
+            array_map(function ($field) {
+                if (is_array($field)) {
+                    foreach ($field as &$val) {
+                        $val = trim($val);
+                    }
+                    return $field;
+                }
+            }, $this->request->all()));
     }
 }

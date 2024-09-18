@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\DTO\GameDto;
+use App\Http\Filters\PostFilter;
 use App\Http\Requests\GameRequest;
 use App\Http\Resources\GameResource;
 use App\Models\Game;
 use App\Services\GameService;
+use Illuminate\Http\Client\Request;
 
 class GameController extends Controller
 {
@@ -31,5 +33,12 @@ class GameController extends Controller
         );
 
         return GameResource::make($game);
+    }
+
+    public function filter(PostFilter $filter)
+    {
+        $games = Game::with('genres', 'developer')->filter($filter)->get();
+
+        return GameResource::collection($games);
     }
 }

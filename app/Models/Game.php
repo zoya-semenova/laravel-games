@@ -11,7 +11,7 @@ class Game extends Model
 {
     use HasFactory, Filterable;
 
-    protected $fillable = ['developer_id', 'genre_id', 'title'];
+    protected $fillable = ['developer_id', 'title'];
 
     public function developer()
     {
