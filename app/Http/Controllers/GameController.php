@@ -15,7 +15,8 @@ class GameController extends Controller
     public function __construct(
         protected GameService $service
     )
-    {}
+    {
+    }
     public function store(GameRequest $request): GameResource
     {
         $game = $this->service->store(

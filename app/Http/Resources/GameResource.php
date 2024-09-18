@@ -13,7 +13,7 @@ class GameResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'developer' => DeveloperResource::make($this->developer),
-            'genres' => GenreListResource::collection($this->genres)
+            'genres' => GenreResource::collection($this->genres)
         ];
     }
 }
