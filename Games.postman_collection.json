@@ -1,0 +1,351 @@
+{
+	"info": {
+		"_postman_id": "6f8cf678-11aa-49f0-9879-55ac2f803421",
+		"name": "Games",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2864644"
+	},
+	"item": [
+		{
+			"name": "Создать разработчика",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "111",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{domain}}/api/developer/",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"developer",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Создать игру",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "111",
+							"type": "text"
+						},
+						{
+							"key": "developer",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "genres[0]",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "genres[1]",
+							"value": "21",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{domain}}/api/game/",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"game",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Создать жанр",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "111",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{domain}}/api/genre/",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"genre",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Редактировать разработчика",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "1112",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{domain}}/api/developer/2/",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"developer",
+						"2",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Редактировать игру",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "1112",
+							"type": "text"
+						},
+						{
+							"key": "developer",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "genres[0]",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{domain}}/api/game/1/",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"game",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Редактировать жанр",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "1112",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{domain}}/api/genre/2/",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"genre",
+						"2",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Фильтровать игры по жанрам",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "genres[0]",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{domain}}/api/game/filter/",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"game",
+						"filter",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Удалить игру",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{domain}}/api/game/3/",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"game",
+						"3",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

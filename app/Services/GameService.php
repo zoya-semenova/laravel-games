@@ -28,4 +28,10 @@ class GameService
 
         return $game;
     }
+
+    public function destroy(Game $game)
+    {
+        $game->genres()->detach();
+        $game->delete();
+    }
 }

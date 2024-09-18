@@ -23,3 +23,4 @@ Route::post('/genre/{genre}', [\App\Http\Controllers\GenreController::class, 'up
 Route::post('/game/filter', [\App\Http\Controllers\GameController::class, 'filter']);
 Route::post('/game', [\App\Http\Controllers\GameController::class, 'store']);
 Route::post('/game/{game}', [\App\Http\Controllers\GameController::class, 'update']);
+Route::delete('/game/{game}', [\App\Http\Controllers\GameController::class, 'destroy']);

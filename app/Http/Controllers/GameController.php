@@ -35,6 +35,13 @@ class GameController extends Controller
         return GameResource::make($game);
     }
 
+    public function destroy(Game $game)
+    {
+        $this->service->destroy($game);
+
+        return response()->json(['message'=>'Success']);
+    }
+
     public function filter(PostFilter $filter)
     {
         $games = Game::with('genres', 'developer')->filter($filter)->get();
