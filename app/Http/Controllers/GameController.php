@@ -9,6 +9,8 @@ use App\Http\Resources\GameResource;
 use App\Models\Game;
 use App\Services\GameService;
 use Illuminate\Http\Client\Request;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class GameController extends Controller
 {
@@ -36,14 +38,14 @@ class GameController extends Controller
         return GameResource::make($game);
     }
 
-    public function destroy(Game $game)
+    public function destroy(Game $game): JsonResponse
     {
         $this->service->destroy($game);
 
         return response()->json(['message'=>'Success']);
     }
 
-    public function filter(PostFilter $filter)
+    public function filter(PostFilter $filter): ResourceCollection
     {
         $games = Game::with('genres', 'developer')->filter($filter)->get();
 
