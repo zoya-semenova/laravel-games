@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\DTO\GameDto;
+use App\Http\Filters\PostFilter;
 use App\Models\Game;
 
 class GameService
@@ -33,5 +34,12 @@ class GameService
     {
         $game->genres()->detach();
         $game->delete();
+    }
+
+    public function filter(PostFilter $filter)
+    {
+        $games = Game::with('genres', 'developer')->filter($filter)->get();
+
+        return $games;
     }
 }

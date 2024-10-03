@@ -47,7 +47,7 @@ class GameController extends Controller
 
     public function filter(PostFilter $filter): ResourceCollection
     {
-        $games = Game::with('genres', 'developer')->filter($filter)->get();
+        $games = $this->service->filter($filter);
 
         return GameResource::collection($games);
     }
