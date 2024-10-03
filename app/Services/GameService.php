@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\DTO\FilterDto;
 use App\DTO\GameDto;
 use App\Http\Filters\PostFilter;
 use App\Models\Game;
@@ -36,10 +37,17 @@ class GameService
         $game->delete();
     }
 
-    public function filter(PostFilter $filter)
+    public function filter(FilterDto $dto)
     {
-        $games = Game::with('genres', 'developer')->filter($filter)->get();
+        if (!empty($dto->genres)) {
+            $games = Game::whereHas('genres', function($q) use($dto)
+            {
+                $q->whereIn('id', $dto->genres);
+            })->get();
 
-        return $games;
+            return $games;
+        }
+
+        return Game::all();
     }
 }

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\DTO\FilterDto;
 use App\DTO\GameDto;
 use App\Http\Filters\PostFilter;
+use App\Http\Requests\FilterRequest;
 use App\Http\Requests\GameRequest;
 use App\Http\Resources\GameResource;
 use App\Models\Game;
@@ -45,9 +47,9 @@ class GameController extends Controller
         return response()->json(['message'=>'Success']);
     }
 
-    public function filter(PostFilter $filter): ResourceCollection
+    public function filter(FilterRequest $request): ResourceCollection
     {
-        $games = $this->service->filter($filter);
+        $games = $this->service->filter(FilterDto::fromRequest($request));
 
         return GameResource::collection($games);
     }
